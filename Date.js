@@ -138,7 +138,6 @@ const month_name = (date)=>{
 
 
 
-
 // 7. Write a JavaScript function to compare dates (i.e. greater than, less than or equal to).
 
 // Test Data :
@@ -150,6 +149,10 @@ const month_name = (date)=>{
 // "Date1 > Date2"
 // "Date2 > Date1"
 
+// Output :
+// "Date1 = Date2"
+// "Date1 > Date2"
+// "Date2 > Date1"
 
 const compare_dates = (date1, date2) =>{
 
@@ -170,6 +173,7 @@ const compare_dates = (date1, date2) =>{
 // console.log(compare_dates(date1,date2))
 
 
+
 // 8. Write a JavaScript function to add specified minutes to a Date object.
 
 // Test Data :
@@ -183,8 +187,10 @@ const add_minutes = (date,minutes)=>{
     getDate.setMinutes(minutes);
     return getDate;
 }
-// console.log(add_minutes(new Date(2014,10,2), 30));
 
+// console.log(add_minutes(new Date(2014,10,2), 30));
+// Output :
+// "Sun Nov 02 2014 00:30:00 GMT+0530 (India Standard Time)"
 
 
 // 7. Write a JavaScript function to test whether a date is a weekend.
@@ -211,7 +217,6 @@ console.log(is_weekend('Nov 17, 2014'));
 console.log(is_weekend('Nov 17, 2025'));
 
 
-
 // 8. Write a JavaScript function to get the difference between two dates in days.
 
 // Test Data :
@@ -235,7 +240,92 @@ console.log(date_diff_indays('12/02/2014', '11/04/2014'));
 
 
 
+// 9. Write a JavaScript function to get the last day of a month.
 
+// Test Data :
+// console.log(lastday(2014,0));
+// console.log(lastday(2014,1));
+// console.log(lastday(2014,11));
+// Output :
+// 31
+// 28
+// 31
+
+const lastday=(year,month)=>{
+    return new Date(year,month+1,0).getDate();
+}
+console.log(lastday(2014,0));
+console.log(lastday(2014,1));
+console.log(lastday(2014,11));
+
+
+
+// 10. Write a JavaScript function to calculate 'yesterday's day.
+
+// Test Data :
+// console.log(yesterday('Nov 15, 2014'));
+// console.log(yesterday('Nov 16, 2015'));
+// console.log(yesterday('Nov 17, 2016'));
+
+// Output :
+// "Fri Nov 14 2014 00:00:00 GMT+0530 (India Standard Time)"
+// "Sun Nov 15 2015 00:00:00 GMT+0530 (India Standard Time)"
+// "Wed Nov 16 2016 00:00:00 GMT+0530 (India Standard Time)"
+
+
+const yesterday = (date)=>{
+    const currentDay = new Date(date);
+    return new Date(currentDay-1).toString()
+}
+console.log(yesterday('Nov 15, 2014'));
+console.log(yesterday('Nov 16, 2015'));
+console.log(yesterday('Nov 17, 2016'));
+
+
+// 11. Write a JavaScript function to get the maximum date from an array of dates.
+
+// Test Data :
+// console.log(max_date(['2015/02/01', '2015/02/02', '2015/01/03']));
+// Output :
+// "2015/02/02"
+
+
+const max_date=(arr)=>{
+    const maxDate = new Date(arr[0])
+    const filterDate = arr.filter(dateString => new Date(dateString) > maxDate);
+    return filterDate.join(',','').toString()
+}
+
+console.log(max_date(['2015/02/01', '2015/02/02', '2015/01/03']));
+
+
+
+// 12. Write a JavaScript function to get the minimum date from an array of dates.
+
+// Test Data :
+// console.log(min_date(['2015/02/01', '2015/02/02', '2015/01/03']));
+// Output :
+// "2015/01/03"
+
+const min_date=(arr)=>{
+    const min_date = new Date(arr[0])
+    const filterDate = arr.filter(dateString => new Date(dateString) < min_date);
+    return filterDate.join(',','').toString()
+}
+
+console.log(min_date(['2015/02/01', '2015/02/02', '2015/01/03']))
+
+
+
+// 13. Write a JavaScript function that returns the number of minutes in hours and minutes.
+
+// Test Data :
+// console.log(timeConvert(200));
+// Output :
+// "200 minutes = 3 hour(s) and 20 minute(s)."
+
+
+const timeConvert
 
 
 
