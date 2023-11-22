@@ -325,8 +325,47 @@ console.log(min_date(['2015/02/01', '2015/02/02', '2015/01/03']))
 // "200 minutes = 3 hour(s) and 20 minute(s)."
 
 
-const timeConvert
+const timeConvert = (time)=>{
+    let hours =  time / 60 ;
+    let getHours = Math.floor(hours)
+    let getMinutes =  Math.floor((hours - getHours)*60);
+    return `${time} minutes = ${getHours} hour(s) and ${getMinutes} minute(s)`
+}
+// console.log(timeConvert(200))
 
+
+
+// 14. Write a JavaScript function to get the number of days in a year.
+
+// Test Data :
+// console.log(days_of_a_year(2015));
+// 365
+// console.log(days_of_a_year(2016));
+// 366
+
+const days_of_a_year=(year)=>{
+    return ((year % 400 === 0) || (year % 4 === 0 && year % 100 !==0)) ? "366 (Leap Year) " : "365 (Not Leap Year)";
+}
+console.log(days_of_a_year(2016))
+
+
+
+
+// // 15. Write a JavaScript function to get the quarter (1 to 4) of the year.
+
+// // Test Data :
+// // console.log(quarter_of_the_year(new Date(2015, 1, 21)));
+// // 2
+// // console.log(quarter_of_the_year(new Date(2015, 10, 18)));
+// // 4
+
+const  quarter_of_the_year = (date)=>{
+    const month = (date.getMonth() + 1) / 3;
+    return Math.ceil(month)
+}
+console.log(quarter_of_the_year(new Date()));
+console.log(quarter_of_the_year(new Date(2015, 10, 18)));
+console.log(quarter_of_the_year(new Date(2015, 1, 21)));
 
 
 
